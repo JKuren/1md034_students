@@ -1,10 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>DELI-VERY</title>
-    </head>
-    <body>
-        <h1>Hello World!!!</h1>
-        <a href="/map" target="_blank">Open map in new window</a>.
-    </body>
+  <head>
+    <title>Page title shown in window title</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <main>
+      <h1>Välkommen till BurgerHeaven Online</h1>
+      <h3>Select burger</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Best Burger EU</th>
+            <th>NA Burger</th>
+            <th>Yikes Burger</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> 
+              <img src="img/burger1.jpg" alt="this is a burger" height="250" width="300"></img>
+              <ul>
+                <li>750 kCal</li>
+                <li>Contains <span class="big">Gluten</span></li>
+                <li>Contains <span class="big">lactose</span></li>
+              </ul>
+            </td>
+            <td>
+              <img src="img/burger2.jpeg" alt="this is a burger" height="250" width="400"></img>
+              <ul>
+                <li>1337 kCal</li>
+                <li>Contains <span class="big">meet</span>, duh</li>
+                <li>Contains <span class="big">lactose</span></li>
+              </ul>
+            </td>
+            <td>
+              <img src="img/burger3.jpg" alt="this is a burger" height="250" width="350"></img>
+              <ul>
+                <li>420 kCal</li>
+                <li>Contains <span class="big">Gluten</span></li>
+                <li>Contains <span class="big">stuff</span></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Customer information</h3>
+      <p>This is where you execute burger selection</p>
+      <h4>Delivery information:</h4>
+      <p>
+        <label for="firstname">Full name</label><br>
+        <input type="text" id="firstname" name="fn" required="required" placeholder="First- and Last name">
+      </p>
+      <p>
+        <label for="email">E-mail</label><br>
+        <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+      </p>
+      <p>
+        <label for="firstname">Street</label><br>
+        <input type="text" id="firstname" name="fn" required="required" placeholder="Street name">
+      </p>
+      <p>
+        <label for="email">House</label><br>
+        <input type="email" id="email" name="em" required="required" placeholder="House number">
+      </p>
+      
+      <p>
+        <label for="recipient">Payment options</label><br>
+        <select id="recipient" name="rcp">
+          <option>Card</option>
+          <option>Cash</option>
+          <option>Swish</option>
+          <option>Natura</option>
+        </select>
+      </p>
+      <label>Gender</label>
+      <form>
+        <input type="radio" name="gender" value="male"> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Non Binary<br>
+        <input type="radio" name="gender" value="other"> Undisclosed
+      </form>
+      <button type="submit"><img src="img/check.jpeg" height="20" width="30"> Send Info</button>
+    </main>
+    <footer>
+      2018 Hypothetical burgers Inc
+    </footer>
+  </body>
 </html>
