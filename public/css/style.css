@@ -10,3 +10,24 @@ body {
 button:hover {
     background-color: coral;
 }
+
+table {
+    width: 65%;
+}
+
+section {
+    margin: 30px;
+}
+
+#sendbutton {
+    margin: 15px;
+}
+
+#lowersection {
+    padding-left: 10px;
+    border: 2px dotted #000000;
+}
+#uppersection {
+    padding-left: 10px;
+    border: 2px dotted #000000;
+}
