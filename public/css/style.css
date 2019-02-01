@@ -53,8 +53,8 @@ section {
 
 #headline {
     position: absolute;
-    margin-top: -6.4em;
-    align: center;
+    margin-top: -6.5em;
+    text-align: center;
 }
 
 header {
@@ -77,22 +77,18 @@ footer {
 
  .box {
      color: #fff;
-     border-radius: 5px;
-     padding: 0px;
+     border-radius: 0.2em;
 
  }
 
 .a {
     grid-column: 1;
-    grid-row: 1;
 }
 
 .b {
      grid-column: 2 ;
-     grid-row: 1;
 }
 
 .c {
      grid-column: 3 ;
-     grid-row: 1 ;
  }
