@@ -7,51 +7,46 @@
   </head>
   <body>
     <main>
-      <h1>Välkommen till BurgerHeaven Online</h1>
+      <header>
+        <img id="headpic" src="img/bar.jpg" alt="bar picture"></img>
+        <h1 id="headline">Välkommen till BurgerHeaven Online</h1>
+      </header>
       <section id="uppersection">
-      <h3>Select burger</h3>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Best Burger EU</th>
-            <th>NA Burger</th>
-            <th>Yikes Burger</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td> 
-              <img src="img/burger1.jpg" alt="this is a burger" height="250" width="300"></img>
+      <h3 class="whitetext">Select burger</h3>
+      <p class="whitetext">This is where you execute burger selection</p>
+      <div class="wrapper">
+          <div class="box a">
+            <h4>Best Burger EU</h4>
+            <img class="burgerpics" src="img/burger1.jpg" alt="this is a burger"></img>
               <ul>
                 <li>750 kCal</li>
                 <li>Contains <span class="big">Gluten</span></li>
                 <li>Contains <span class="big">lactose</span></li>
               </ul>
-            </td>
-            <td>
-              <img src="img/burger2.jpeg" alt="this is a burger" height="250" width="400"></img>
+          </div>
+          <div class="box b">
+            <h4>NA Burger</h4>
+            <img class="burgerpics" src="img/burger2.jpeg" alt="this is a burger"></img>
               <ul>
                 <li>1337 kCal</li>
                 <li>Contains <span class="big">meet</span>, duh</li>
                 <li>Contains <span class="big">lactose</span></li>
               </ul>
-            </td>
-            <td>
-              <img src="img/burger3.jpg" alt="this is a burger" height="250" width="350"></img>
+          </div>
+          <div class="box c">
+            <h4>Yikes Burger</h4>
+            <img class="burgerpics" src="img/burger3.jpg" alt="this is a burger"></img>
               <ul>
                 <li>420 kCal</li>
                 <li>Contains <span class="big">Gluten</span></li>
                 <li>Contains <span class="big">stuff</span></li>
               </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+          </div>
+        </div>
       </section>
       <section id="lowersection">
-      <h3>Customer information</h3>
-      <p>This is where you execute burger selection</p>
+        <h3>Customer information</h3>
+        
       <h4>Delivery information:</h4>
       <p>
         <label for="firstname">Full name</label><br>
@@ -86,7 +81,7 @@
         <input type="radio" name="gender" value="other"> Non Binary<br>
         <input type="radio" name="gender" value="other"> Undisclosed
       </form>
-      <button type="submit" id="sendbutton"><img src="img/check.jpeg" height="20" width="30"> Send Info</button>
+      <button type="submit" id="sendbutton"><img id ="buttonpic" src="img/check.jpeg"> Send Info</button>
       </section>
     </main>
     <footer>
