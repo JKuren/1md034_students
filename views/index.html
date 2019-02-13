@@ -81,72 +81,77 @@
     <script src="js/menu.js" defer></script>
   </head>
   <body>
-    <main>
-      <header>
-        <img id="headpic" src="img/bar.jpg" alt="bar picture"></img>
-        <h1 id="headline">Welcome to BurgerHeaven</h1>
-      </header>
-      <section id="uppersection">
-        <h3 class="whitetext">Select burger</h3>
-        <p class="whitetext">This is where you execute burger selection</p>
-        <div id="myID">
-          <div  v-bind:class="['box ' + burger.id ]" v-for="burger in burgers">
-            <h3>{{burger.name}}</h3>
-            <img v-bind:src="burger.img" alt="pic" v-bind:class="{burgerpics : true}"></img>
-            <ul>
-              <li>{{burger.kCal}} kCal</li>
-              <li v-if="burger.lactose">Contains lactose</li>
-              <li v-if="burger.gluten">Contains gluten</li>
-            </ul>
-            
+    <div class="el">
+      <main>
+        <header>
+          <img id="headpic" src="img/bar.jpg" alt="bar picture"></img>
+          <h1 id="headline">Welcome to BurgerHeaven</h1>
+        </header>
+        <section id="uppersection">
+          <h3 class="whitetext">Select burger</h3>
+          <p class="whitetext">This is where you execute burger selection</p>
+          
+          <div class="wrapper">
+            <p>{{name}}</p>
+            <div  v-bind:class="['box ' + burger.id ]" v-for="burger in burgers">
+              <h3>{{burger.name}}</h3>
+              <input type="checkbox" v-model="burger.checked">
+              <img v-bind:src="burger.img" alt="pic" v-bind:class="{burgerpics : true}"></img>
+              <ul>
+                <li>{{burger.kCal}} kCal</li>
+                <li v-if="burger.lactose">Contains <span class="big">lactose</span></li>
+                <li v-if="burger.gluten">Contains <span class="big">gluten</span></li>
+              </ul>
+              
+            </div>
           </div>
+        </section>
+        <section id="lowersection">
+          <h3>Customer information</h3>
+          
+          <h4>Delivery information:</h4>
+          <p>
+            <label for="name">Name</label><br>
+            <input v-model="user.name" placeholder="First- and Last name">
+          </p>
+          <p>
+            <label for="email">E-mail</label><br>
+            <input v-model="user.email" type="email" id="email" name="em" required="required" placeholder="E-mail address">
+          </p>
+          <p>
+            <label for="street">Street</label><br>
+            <input v-model="user.street" type="text" id="street" name="fn" required="required" placeholder="Street name">
+          </p>
+          <p>
+            <label for="house">House</label><br>
+            <input v-model="user.housenr" type="number" id="house" name="em" pattern="[0-9]" required="required" placeholder="House number">
+          </p>
+          
+          <p>
+            <label for="recipient">Payment options</label><br>
+            <select id="recipient" v-model="user.payment">
+              <option>Card</option>
+              <option>Cash</option>
+              <option>Swish</option>
+              <option>Natura</option>
+            </select>
+          </p>
+          <label>Gender</label>
+          <form id="form">
+            <input id="gender" type="radio" name="gender" value="male" v-model="user.gender"> Male<br>
+            <input id="gender" type="radio" name="gender" value="female" v-model="user.gender"> Female<br>
+            <input id="gender" type="radio" name="gender" value="Non-Binary" v-model="user.gender"> Non Binary<br>
+            <input id="gender" type="radio" name="gender" value="Undisclosed" v-model="user.gender"> Undisclosed
+          </form>
+          <button v-on:click="greet" type="submit" id="sendbutton"><img id="buttonpic" src="img/check.jpeg"> Send Info</button>
+        </section>
+        <div id="info">
+          
         </div>
-      </section>
-      <section id="lowersection">
-        <h3>Customer information</h3>
-        
-        <h4>Delivery information:</h4>
-        <p>
-          <label for="firstname">Full name</label><br>
-          <input type="text" id="firstname" name="fn" required="required" placeholder="First- and Last name">
-        </p>
-        <p>
-          <label for="email">E-mail</label><br>
-          <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
-        </p>
-        <p>
-          <label for="street">Street</label><br>
-          <input type="text" id="street" name="fn" required="required" placeholder="Street name">
-        </p>
-        <p>
-          <label for="house">House</label><br>
-          <input type="number" id="house" name="em" pattern="[0-9]" required="required" placeholder="House number">
-        </p>
-        
-        <p>
-          <label for="recipient">Payment options</label><br>
-          <select id="recipient" name="rcp">
-            <option>Card</option>
-            <option>Cash</option>
-            <option>Swish</option>
-            <option>Natura</option>
-          </select>
-        </p>
-        <label>Gender</label>
-        <form id="form">
-          <input id="gender" type="radio" name="gender" value="male"> Male<br>
-          <input id="gender" type="radio" name="gender" value="female"> Female<br>
-          <input id="gender" type="radio" name="gender" value="other"> Non Binary<br>
-          <input id="gender" type="radio" name="gender" value="other"> Undisclosed
-        </form>
-        <button onclick="getInfo()" type="submit" id="sendbutton"><img id="buttonpic" src="img/check.jpeg"> Send Info</button>
-      </section>
-      <div id="info">
-        
-      </div>
-    </main>
-    <footer>
-      2018 Hypothetical burgers Inc
-    </footer>
-    </body>
+      </main>
+      <footer>
+        2018 Hypothetical burgers Inc
+      </footer>
+    </div>
+  </body>
 </html>

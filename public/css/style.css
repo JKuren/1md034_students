@@ -71,8 +71,10 @@ footer {
     margin-left: 0.5em;
 }
 
-
-#wrapper {
+.el {
+    
+}
+.wrapper {
      display: grid;
      grid-gap: 0.5em;
      color: #444;
@@ -81,8 +83,6 @@ footer {
 .box {
     color: #fff;
     border-radius: 0.2em;
-    background-color: green;
-
  }
 
 .a {
