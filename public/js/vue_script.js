@@ -11,7 +11,7 @@ var vm = new Vue({
     data: {
         orders: {},
         details: {x: -100, y:-100},
-        orderId: "",
+        orderId: "toto",
         orderItems: [],
         personalInfo: {},
         
@@ -67,16 +67,22 @@ var vm = new Vue({
             "email": '',
             "payment": '',
             "gender": '',
-        }
+        },
+        last: 0,
         
     },
     
     methods: {
         getNext: function () {
+            
+              this.last = this.last + 1;
+              return this.last;
+            /*
             var lastOrder = Object.keys(this.orders).reduce(function (last, next) {
                 return Math.max(last, next);
             }, 0);
             return lastOrder + 1;
+*/
         },
         
         greet: function(event) {
@@ -98,6 +104,12 @@ var vm = new Vue({
             
         },
         addOrder: function (event) {
+            this.orderItems = [];
+            for(var i = 0; i < this.burgers.length; i++) {
+                if(this.burgers[i].checked) {
+                    this.orderItems.push(this.burgers[i]);
+                }
+            }
             socket.emit("addOrder", {orderId: this.getNext(),
                                      details: this.details,
                                      orderItems: this.orderItems,
@@ -111,8 +123,12 @@ var vm = new Vue({
                 x: event.clientX - 10 - offset.x,
                 y: event.clientY - 10 - offset.y
             };
-            this.orderItems = this.burgers;
+            
         },
+        send: function (event) {
+            this.addOrder();
+            this.greet();
+        }
         
     }
 });

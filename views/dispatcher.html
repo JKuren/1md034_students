@@ -12,13 +12,13 @@
 <body>
   <div id="orders">
     <div id="orderList">
-      <div v-for="(order, key) in orders">
-        {{order.orderId}}
+      <div v-for="(order, key) in orders" class="singleorder">
+        {{key}}#
         <a v-for="items in order.orderItems">
           {{ items.name }}
         </a>
         <p>
-          {{order.personalInfo.name}}, {{order.personalInfo.email}}, {{order.personalInfo.payment}}, {{order.personalInfo.gender}}
+          &nbsp {{order.personalInfo.name}}, {{order.personalInfo.email}}, {{order.personalInfo.payment}}, {{order.personalInfo.gender}}
         </p>
       </div>
     </div>
