@@ -1,9 +1,19 @@
+/*jslint es5:true, indent: 2 */
+/*global Vue, io */
+/* exported vm */
+
+'use strict';
+var socket = io();
+
 var vm = new Vue({
     el: '.el',
-    de: 'test',
     
     data: {
-        h: '',
+        orders: {},
+        details: {x: -100, y:-100},
+        orderId: "",
+        orderItems: [],
+        personalInfo: {},
         
         burgers: [
             {
@@ -51,38 +61,58 @@ var vm = new Vue({
                 "id": "e",
                 "checked": false
             }
-        ]
-        ,
+        ],
         user: {
             "name": '',
             "email": '',
-            "street": '',
-            "housenr": '',
             "payment": '',
             "gender": '',
-        },
-        name: ''
+        }
+        
     },
+    
     methods: {
+        getNext: function () {
+            var lastOrder = Object.keys(this.orders).reduce(function (last, next) {
+                return Math.max(last, next);
+            }, 0);
+            return lastOrder + 1;
+        },
+        
         greet: function(event) {
             var info = document.getElementById("info");
             info.appendChild(document.createTextNode(" Name: " + this.user.name));
             info.appendChild(document.createElement("BR"));
             info.appendChild(document.createTextNode(" Email: " + this.user.email));
             info.appendChild(document.createElement("BR"));
-            info.appendChild(document.createTextNode(" Adress: " + this.user.street + " " + this.user.housenr));
-            info.appendChild(document.createElement("BR"));
             info.appendChild(document.createTextNode(" Payment: " + this.user.payment));
             info.appendChild(document.createElement("BR"));
             info.appendChild(document.createTextNode(" Gender: " + this.user.gender));
-            for(i = 0; i < this.burgers.length; i++) {
+            for(var i = 0; i < this.burgers.length; i++) {
                 if(this.burgers[i].checked) {
                     info.appendChild(document.createElement("BR"));
                     info.appendChild(document.createTextNode(this.burgers[i].name + " selected  "));
                 }
             }
             
-        }
+            
+        },
+        addOrder: function (event) {
+            socket.emit("addOrder", {orderId: this.getNext(),
+                                     details: this.details,
+                                     orderItems: this.orderItems,
+                                     personalInfo: this.user});
+        },
+        displayOrder: function (event) {
+            var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                          y: event.currentTarget.getBoundingClientRect().top};
+            this.orderId ="T";
+            this.details = {
+                x: event.clientX - 10 - offset.x,
+                y: event.clientY - 10 - offset.y
+            };
+            this.orderItems = this.burgers;
+        },
+        
     }
-})
-
+});

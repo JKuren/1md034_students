@@ -174,8 +174,6 @@ function MenuItem(name, image, kcal, gluten, lactose) {
 function getInfo() {
     var firstname = document.getElementById("firstname");
     var email = document.getElementById("email");
-    var street = document.getElementById("street");
-    var houseNumber = document.getElementById("house");
     var gender = document.getElementsByClassName("gender");
     var boxes = document.getElementsByClassName("checkbox");
     var info = document.getElementById("info");
@@ -186,9 +184,7 @@ function getInfo() {
     if(email.value.length > 0) {
         info.appendChild(document.createTextNode(" Email: " +  email.value));
     }
-    if(street.value.length > 0) {
-        info.appendChild(document.createTextNode(" Street and house number: " + street.value + " " + houseNumber.value));
-    }
+    
     for(i = 0; i < gender.length; i++) {
         if(gender[i].checked) {
             info.appendChild(document.createTextNode(" Gender: " + gender[i].value));
