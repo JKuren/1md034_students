@@ -15,10 +15,13 @@
       <div v-for="(order, key) in orders" class="singleorder">
         {{key}}#
         <a v-for="items in order.orderItems">
-          {{ items.name }}
+          <b v-if="items">{{ items.name }}, </b>
         </a>
         <p>
-          &nbsp {{order.personalInfo.name}}, {{order.personalInfo.email}}, {{order.personalInfo.payment}}, {{order.personalInfo.gender}}
+          &nbsp <i v-if="order.personalInfo.name">{{order.personalInfo.name}},</i>
+          <a v-if="order.personalInfo.email">{{order.personalInfo.email}},</a>
+          <a v-if="order.personalInfo.payment">{{order.personalInfo.payment}},</a>
+          <a v-if="order.personalInfo.gender">{{order.personalInfo.gender}}</a>
         </p>
       </div>
     </div>
