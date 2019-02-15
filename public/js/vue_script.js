@@ -86,7 +86,9 @@ var vm = new Vue({
         },
         
         greet: function(event) {
+            
             var info = document.getElementById("info");
+            info.innerHTML = "";
             info.appendChild(document.createTextNode(" Name: " + this.user.name));
             info.appendChild(document.createElement("BR"));
             info.appendChild(document.createTextNode(" Email: " + this.user.email));
