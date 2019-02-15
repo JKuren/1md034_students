@@ -10,7 +10,7 @@ var vm = new Vue({
     
     data: {
         orders: {},
-        details: {x: -100, y:-100},
+        details: {x: -60, y:-60},
         orderId: "toto",
         orderItems: [],
         personalInfo: {},
@@ -77,12 +77,7 @@ var vm = new Vue({
             
               this.last = this.last + 1;
               return this.last;
-            /*
-            var lastOrder = Object.keys(this.orders).reduce(function (last, next) {
-                return Math.max(last, next);
-            }, 0);
-            return lastOrder + 1;
-*/
+
         },
         
         greet: function(event) {
